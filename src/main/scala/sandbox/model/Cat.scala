@@ -2,18 +2,21 @@ package sandbox.model
 
 import sandbox.typeclass.Printable
 
+import scala.Predef.{augmentString => _}
+
 final case class Cat(name: String, age: Int, color: String)
 
 object Cat {
 
-  import cats.{Eq, Show}
   import cats.implicits._
+  import cats.{Eq, Show}
   import sandbox.typeclass.PrintableInstances._
+  import sandbox.typeclass.PrintableSyntax.PrintableOps
 
   implicit val printableCat: Printable[Cat] = (cat: Cat) => {
-    val name = Printable.format(cat.name)
-    val age = Printable.format(cat.age)
-    val color = Printable.format(cat.color)
+    val name = cat.name.format
+    val age = cat.age.format
+    val color = cat.color.format
     s"$name is a $age year-old $color cat"
   }
 

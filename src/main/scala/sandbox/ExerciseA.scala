@@ -4,7 +4,7 @@ import cats.implicits._
 import sandbox.model.Cat
 import sandbox.typeclass.PrintableSyntax._
 
-object Main {
+object ExerciseA {
   private val cat = Cat("Morgana", 5, "black, mixed and white")
 
   println("Hello " |+| "Cats!")
@@ -30,8 +30,10 @@ object Main {
     val optionCat = Option(cat)
     val optionCat2 = Option.empty[Cat]
 
+    println(s"cat === cat: ${cat === cat}")
     println(s"cat === cat2: ${cat === cat2}")
     println(s"cat =!= cat2: ${cat =!= cat2}")
+    println(s"Option(cat) === Option(cat): ${optionCat === optionCat}")
     println(s"Option(cat) === Option.empty: ${optionCat === optionCat2}")
     println(s"Option(cat) =!= Option.empty: ${optionCat =!= optionCat2}")
   }

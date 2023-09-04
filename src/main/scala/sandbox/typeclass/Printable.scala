@@ -9,16 +9,10 @@ object PrintableInstances {
   implicit val printableInt: Printable[Int] = (value: Int) => s"$value"
 }
 
-object Printable {
-  def format[A: Printable](value: A): String = implicitly[Printable[A]].format(value)
-
-  def print[A: Printable](value: A): Unit = println(format(value))
-}
-
 object PrintableSyntax {
   implicit class PrintableOps[A](value: A) {
-    def format(implicit printable: Printable[A]): String = Printable.format(value)
+    def format(implicit printable: Printable[A]): String = printable.format(value)
 
-    def print(implicit printable: Printable[A]): Unit = Printable.print(value)
+    def print(implicit printable: Printable[A]): Unit = println(format)
   }
 }
