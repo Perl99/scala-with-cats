@@ -1,6 +1,4 @@
-package sandbox.model
-
-import sandbox.typeclass.Printable
+package sandbox.excercise1
 
 import scala.Predef.{augmentString => _}
 
@@ -8,10 +6,10 @@ final case class Cat(name: String, age: Int, color: String)
 
 object Cat {
 
+  import PrintableInstances._
+  import PrintableSyntax.PrintableOps
   import cats.implicits._
   import cats.{Eq, Show}
-  import sandbox.typeclass.PrintableInstances._
-  import sandbox.typeclass.PrintableSyntax.PrintableOps
 
   implicit val printableCat: Printable[Cat] = (cat: Cat) => {
     val name = cat.name.format
