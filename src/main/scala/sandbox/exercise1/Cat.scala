@@ -1,4 +1,4 @@
-package sandbox.excercise1
+package sandbox.exercise1
 
 import scala.Predef.{augmentString => _}
 

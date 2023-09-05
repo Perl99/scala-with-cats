@@ -1,9 +1,9 @@
-package sandbox.excercise1
+package sandbox.exercise1
 
 import cats.implicits._
-import sandbox.excercise1.PrintableSyntax._
+import sandbox.exercise1.PrintableSyntax._
 
-object ExerciseA {
+object Exercise1 {
   private val cat = Cat("Morgana", 5, "black, mixed and white")
 
   println("Hello " |+| "Cats!")

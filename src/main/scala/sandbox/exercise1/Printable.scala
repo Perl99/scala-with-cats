@@ -1,4 +1,4 @@
-package sandbox.excercise1
+package sandbox.exercise1
 
 trait Printable[A] {
   def format(value: A): String
