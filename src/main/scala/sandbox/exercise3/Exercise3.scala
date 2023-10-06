@@ -1,6 +1,7 @@
 package sandbox.exercise3
 
 import cats.implicits._
+import sandbox.exercise3.CodecInstances._
 import sandbox.exercise3.PrintableInstances._
 import sandbox.exercise3.TreeFunctorInstances._
 
@@ -16,5 +17,10 @@ object Exercise3 {
 
     println(PrintableInstances.format(Box("hello world")))
     println(PrintableInstances.format(Box(false)))
+
+    println(CodecInstances.encode(123))
+    println(CodecInstances.decode[Boolean]("true"))
+    println(CodecInstances.encode(Box(3.14)))
+    println(CodecInstances.decode[Box[Double]]("3.14"))
   }
 }
